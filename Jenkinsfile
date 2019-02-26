@@ -13,6 +13,10 @@ node{
             image.push("v${env.BUILD_ID}");
 
 }
+   stage('removing old container'){
+ 	sh label: '', script: '''docker ps -a | awk \'{ print $1,$2 }\' | grep -i muhammadhanzala/jenkins-demo | awk \'{ print $1 }\' | xargs docker stop
+'''
+    }
    stage('running Docker container'){
 	image.run('-d -p 8060:8060')
 
