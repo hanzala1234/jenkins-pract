@@ -11,7 +11,7 @@ node{
         
     }
     stage('Pushing docker images'){
-        withDockerRegistry(credentialsId: 'DOCKER_ID', url: 'https://registry.hub.docker.com') {
+        withDockerRegistry(credentialsId: 'DOCKER_ID') {
             image.push("v${env.BUILD_ID}");
 
 }
