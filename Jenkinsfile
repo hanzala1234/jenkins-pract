@@ -2,7 +2,7 @@ node{
    def image 
     stage('checkout'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hanzala1234/jenkins-pract.git']]])
-                  
+         sh   'ls'        
     }
     stage('Building docker images'){
          image = docker.build("muhammadhanzala/jenkins-demo:${env.BUILD_ID}")
