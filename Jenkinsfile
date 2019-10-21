@@ -6,7 +6,7 @@ node{
     }
     stage('Building docker images'){
         sh 'ls'
-        sh "docker ps" 
+        sh "docker info" 
         image = docker.build("muhammadhanzala/jenkins-demo:${env.BUILD_ID}")
         
     }
